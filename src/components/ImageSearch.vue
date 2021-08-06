@@ -4,21 +4,12 @@
 
     <WaterMark :logoPath="api.getApiLogoPath()" />
 
-    <InfoBar :show="show" style="margin-top: 100%">
-      <div class="col1">
-        <div class="title">
-          {{ images[imageIndex]?.description ?? "No Title" }}
-        </div>
-        <span>{{
-          images[imageIndex]?.alt_description ?? "No description"
-        }}</span>
-      </div>
-      <div class="col2">
-        <BlueButton :clickCallback="changeImage">
-          <img :src="require('../assets/arrow.svg')" style="width: 1.5em" />
-        </BlueButton>
-      </div>
-    </InfoBar>
+    <InfoBar
+      :show="show"
+      :title="images[imageIndex]?.description"
+      :description="images[imageIndex]?.alt_description"
+      :changeImage="changeImage"
+    />
 
     <SearchBar @images-loaded="onImagesLoaded" :api="api" />
   </div>
@@ -28,7 +19,6 @@
 import { defineComponent } from "vue";
 import ImageViewer from "./ImageViewer.vue";
 import InfoBar from "./InfoBar.vue";
-import BlueButton from "./BlueButton.vue";
 import WaterMark from "./waterMark.vue";
 import SearchBar from "./SearchBar.vue";
 import ImageInterface from "../imageAPIs/image_interface";
@@ -40,7 +30,6 @@ export default defineComponent({
     ImageViewer,
     InfoBar,
     SearchBar,
-    BlueButton,
     WaterMark,
   },
   data() {
@@ -69,30 +58,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-.infoBar .row .col1 {
-  width: 70%;
-  color: white;
-  text-align: initial;
-  font-weight: 600;
-  display: grid;
-}
-.infoBar .row .col1 span {
-  color: #92979c;
-  font-weight: 100;
-  font-size: 0.9em;
-}
-.infoBar .row .col2 {
-  width: 30%;
-  display: grid;
-  justify-content: end;
-}
 .neomorphism {
   border: 0px;
   background: #32373d;

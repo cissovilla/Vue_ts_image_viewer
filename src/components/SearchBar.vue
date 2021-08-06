@@ -1,5 +1,5 @@
 <template>
-  <InfoBar class="fixedBar" :show="true" row="block">
+  <Bar class="fixedBar" :show="true" row="block">
     <div>
       <select v-model="selectedTag">
         <option disabled value="" :style="{ opacity: '0.6' }">
@@ -16,12 +16,12 @@
         <img :src="require('../assets/search.svg')" style="width: 1.5em" />
       </BlueButton>
     </div>
-  </InfoBar>
+  </Bar>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import InfoBar from "./InfoBar.vue";
+import Bar from "./Bar.vue";
 import BlueButton from "./BlueButton.vue";
 import ImageInterface from "../imageAPIs/image_interface";
 import ApiInterface from "../imageAPIs/api_interface";
@@ -29,7 +29,7 @@ import ApiInterface from "../imageAPIs/api_interface";
 export default defineComponent({
   name: "SearshBar",
   components: {
-    InfoBar,
+    Bar,
     BlueButton,
   },
   props: {
