@@ -1,6 +1,6 @@
 # images-viewer
 
-## A plugin-and-play images API viewer
+## A plugin-and-play images API viewer (mobile only)
 
 ## Project setup
 
